@@ -1,0 +1,13 @@
+`"pkg-config" "--libs" "--cflags" "fuse3" "fuse3 >= 3.0.0"` did not exit successfully: exit status: 1
+error: could not find system library 'fuse3' required by the 'fuser' crate
+
+--- stderr
+Package fuse3 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `fuse3.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'fuse3' found
+Package fuse3 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `fuse3.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'fuse3' found
+
