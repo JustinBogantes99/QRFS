@@ -8,3 +8,6 @@ edition = "2021"
 [dependencies]
 fuser = "0.7"
 fuse = "0.3.1"
+serde = "1.0.136"
+libc = "0.2.16"
+time = "0.1"

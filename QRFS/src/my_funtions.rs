@@ -18,7 +18,6 @@ static mut curr_file_content_idx: i32 = 0;
 
 //struct QRFS{}
 pub fn add_dir( dir_name : String ) {
-
 	unsafe {
 		curr_dir_idx+= 1;
 		dir_list.push(dir_name);
@@ -41,9 +40,8 @@ pub fn is_dir(  path : String ) -> bool  {
 		return false;
 	} 	
 }
+
 //impl qrfs {}
-
-
 /*
 fn is_dir(  path: String )
 {
