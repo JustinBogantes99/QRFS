@@ -28,6 +28,20 @@ impl QRFS {
 }
 
 impl Filesystem for QRFS {
+    fn lookup(&mut self, _req: &Request, parent: u64, name: &OsStr, reply: ReplyEntry) {
+        println!("lookup(parent={:?}, name={:?})", parent, name);
+        let file_name = name.to_str().unwrap();
+        let inode = self.disk.find_inode_in_references_by_name(parent, file_name);
+
+        match inode {
+            Some(inode) => {
+                let ttl = time::now().to_timespec();
+                println!("        - lookup(parent={:?}, attr={:?})", parent, inode.attributes);
+                reply.entry(&ttl, &inode.attributes, 0)
+            },
+            None => reply.error(ENOENT) // “No such file or directory.”
+        }
+    }
     fn mkdir(&mut self, _req: &Request, parent: u64, name: &OsStr, _mode: u32, reply: ReplyEntry) {
         let reference_index = self.disk.find_index_of_empty_reference_in_inode(parent);
         match reference_index {
@@ -36,66 +50,27 @@ impl Filesystem for QRFS {
                 match ino {
                     Some(ino) => {
                         let ts = time::now().to_timespec();
-                        let attr = FileAttr {
-                            ino: ino as u64,
-                            size: 0,
-                            blocks: 1,
-                            atime: ts,
-                            mtime: ts,
-                            ctime: ts,
-                            crtime: ts,
-                            kind: FileType::Directory,
-                            perm: 0o755,
-                            nlink: 0,
-                            uid: 0,
-                            gid: 0,
-                            rdev: 0,
-                            flags: 0,
+                        let attr = FileAttr {ino: ino as u64,size: 0,blocks: 1,atime: ts, mtime: ts, ctime: ts, crtime: ts,kind: FileType::Directory,
+                            perm: 0o755,nlink: 0,uid: 0,gid: 0,rdev: 0,flags: 0,
                         };
 
                         let name = name.to_str().unwrap();
                         let name: Vec<char> = name.chars().collect();
-
                         let mut name_char = ['\0'; 64];
                         name_char[..name.len()].clone_from_slice(&name);
-
                         let inode = Inode {
                             name: name_char,
                             attributes: attr,
                             references: [None; 128]
                         };
-
                         self.disk.write_inode(inode);
                         self.disk.write_reference_in_inode(parent, reference_index, ino as usize);
-
                         reply.entry(&ts, &attr, 0);
                     },
                     None => reply.error(ENOSPC) // “No space left on device.”
                 }
             },
-            None => { println!("Limite de arquivos dentro da pasta atingido!"); reply.error(EIO); }
-        }
-    }
-
-    fn rmdir(
-        &mut self, 
-        _req: &Request, 
-        parent: u64, 
-        name: &OsStr, 
-        reply: ReplyEmpty
-    ) {
-        let name = name.to_str().unwrap();
-        let inode = self.disk.find_inode_in_references_by_name(parent, name);
-
-        match inode {
-            Some(inode) => {
-                let ino = inode.attributes.ino;
-                self.disk.clear_reference_in_inode(parent, ino as usize);
-                self.disk.clear_inode(ino);
-
-                reply.ok();
-            },
-            None => reply.error(EIO) // "Input/output error."
+            None => { println!("¡Límite de archivos dentro de la carpeta alcanzado!"); reply.error(EIO); }
         }
     }
 }
@@ -110,5 +85,7 @@ fn main() {
         }
     };
     let fs = QRFS::new(mountpoint.clone());
+    let options = ["-o", "nonempty"].iter().map(|o| o.as_ref()).collect::<Vec<&OsStr>>();
+    fuse::mount(fs, &mountpoint, &options).unwrap();
 }
  

@@ -106,13 +106,13 @@ impl Disk {
         let index = (ino as usize) - 1;
         match &self.super_block[index] {
             Some(inode) => inode.references.iter().position(|r| r == &None),
-            None => panic!("Tentativa inválida de memória")
+            None => panic!("Acceso de memoria invalido")
         }
     }
 
     pub fn write_inode(&mut self, inode: Inode) {
         if mem::size_of_val(&inode) > self.block_size {
-            println!("Não foi possível salvar o inode: tamanho maior que o tamanho do bloco de memória");
+            println!("No se puede guardar el inodo: tamaño mayor que el tamaño del bloque de memoria");
             return;
         }
 
