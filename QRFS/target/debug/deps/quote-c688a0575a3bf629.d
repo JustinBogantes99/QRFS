@@ -1,0 +1,13 @@
+/home/justin/Documentos/GitHub/QRFS/QRFS/target/debug/deps/quote-c688a0575a3bf629.rmeta: /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/lib.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ext.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/format.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ident_fragment.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/to_tokens.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/runtime.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/spanned.rs
+
+/home/justin/Documentos/GitHub/QRFS/QRFS/target/debug/deps/libquote-c688a0575a3bf629.rlib: /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/lib.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ext.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/format.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ident_fragment.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/to_tokens.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/runtime.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/spanned.rs
+
+/home/justin/Documentos/GitHub/QRFS/QRFS/target/debug/deps/quote-c688a0575a3bf629.d: /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/lib.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ext.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/format.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ident_fragment.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/to_tokens.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/runtime.rs /home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/spanned.rs
+
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/lib.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ext.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/format.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/ident_fragment.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/to_tokens.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/runtime.rs:
+/home/justin/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.19/src/spanned.rs:
